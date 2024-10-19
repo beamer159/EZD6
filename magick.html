@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Magick - EZD6</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="character_creation.html"><strong aria-hidden="true">1.</strong> Character Creation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hero_paths.html"><strong aria-hidden="true">1.1.</strong> Hero Paths</a></li><li class="chapter-item expanded "><a href="species.html"><strong aria-hidden="true">1.2.</strong> Species</a></li><li class="chapter-item expanded "><a href="inclinations.html"><strong aria-hidden="true">1.3.</strong> Inclinations</a></li><li class="chapter-item expanded "><a href="aspects.html"><strong aria-hidden="true">1.4.</strong> Aspects</a></li><li class="chapter-item expanded "><a href="circles_of_sorcery.html"><strong aria-hidden="true">1.5.</strong> Circles of Sorcery</a></li></ol></li><li class="chapter-item expanded "><a href="how_to_play.html"><strong aria-hidden="true">2.</strong> How To Play</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rolls.html"><strong aria-hidden="true">2.1.</strong> Rolls</a></li><li class="chapter-item expanded "><a href="karma.html"><strong aria-hidden="true">2.2.</strong> Karma</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">2.3.</strong> Actions</a></li><li class="chapter-item expanded "><a href="combat.html"><strong aria-hidden="true">2.4.</strong> Combat</a></li><li class="chapter-item expanded "><a href="magick.html" class="active"><strong aria-hidden="true">2.5.</strong> Magick</a></li><li class="chapter-item expanded "><a href="miracles.html"><strong aria-hidden="true">2.6.</strong> Mircacles</a></li><li class="chapter-item expanded "><a href="equipment.html"><strong aria-hidden="true">2.7.</strong> Equipment</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EZD6</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="magick"><a class="header" href="#magick">Magick</a></h1>
+<h2 id="preparing-a-spell"><a class="header" href="#preparing-a-spell">Preparing a spell</a></h2>
+<p>The conjurer explains what spell they are casting to the RR. The RR then decides if the spell is targeted against a creature(s), an effect, or a beneficial spell with friendly targets. This exchange will help the RR decide on how many resistance dice to roll.</p>
+<h2 id="resistance-to-a-cast-spell"><a class="header" href="#resistance-to-a-cast-spell">Resistance to a cast spell</a></h2>
+<p>Most enemies or heroes resist spells with a 1D6 roll whereas others have a higher magick resistance and will roll more dice. Spells targeted against the environment instead of an enemy generally roll a 1D6 but the RR may decide to roll more dice depending on factors within the spell area.</p>
+<h2 id="powering-up-a-spell"><a class="header" href="#powering-up-a-spell">Powering up a spell</a></h2>
+<p>When a conjurer casts a spell they must decide the <strong>power level</strong> (PL = 1D6 to 3D6) they want to use. This means the conjurer has to choose whether to roll one, two, or three dice. The caster must equal or beat the resistance number of the highest resistance die roll of the target(s) on one of the power level dice rolled.</p>
+<p>The resistance dice will always be rolled and revealed first before the conjurer decides on the power level. If the highest resistance number ends up as a 1 the conjurer automatically casts the spell.</p>
+<h2 id="successfully-casting-a-spell"><a class="header" href="#successfully-casting-a-spell">Successfully casting a spell</a></h2>
+<p>The highest die rolled on a power level roll must equal or beat the highest resistance die. A PL of 6 will beat a 6 rolled by the RR on the resistance die. The potential problem is if any of the power level dice rolled are 1s. If so, the spell fails automatically unless the conjurer takes spellburn.</p>
+<p>Rolling more power level dice has a greater chance of equaling or beating a resistance roll but also gives you a better chance to roll a 1. If the resistance number you need to equal or beat is low consider rolling one or two dice instead of three.</p>
+<h2 id="spellburn-and-personal-sacrifice"><a class="header" href="#spellburn-and-personal-sacrifice">Spellburn and personal sacrifice</a></h2>
+<p>Manipulating the mystic energies is difficult and can be outright dangerous. A roll of a 1 when casting a spell means the energies do not manifest, but a conjurer may want to sacrifice life force to continue to cast a spell. A spell can still be cast by the conjurer taking a strike of damage for each 1 rolled. Otherwise, the spell fails.</p>
+<p>Karma cannot be used to boost power level spell rolls or resistance rolls but a hero die can be used to re-roll any single power level die including a 1.</p>
+<h2 id="conjurers-can-attack-multiple-enemies-with-a-spell"><a class="header" href="#conjurers-can-attack-multiple-enemies-with-a-spell">Conjurers can attack multiple enemies with a spell</a></h2>
+<p>Conjurers can attack up to six enemies but the strain is great and the defenses will be harder to overcome if spells are stretched over multiple targets. The targets must be within near proximity to each other. Each target above one adds an extra 1D6 to the resistance roll for the grouping. This means that either all the targeted enemies are hit or none are. For example, three targeted enemies defend against a spell at a 3D6. Certain enemies may use bonus dice to resist if included in the pool of targets.</p>
+<h2 id="conjurers-must-anchor-a-spell-to-maintain-it"><a class="header" href="#conjurers-must-anchor-a-spell-to-maintain-it">Conjurers must “anchor” a spell to maintain it</a></h2>
+<p>Some spells are not cast instantly and need to be maintained. Anchoring allows conjurers to embed and maintain an active, prolonged spell in their mind. The conjurer can do any other actions while anchoring a spell but if the conjurer takes a strike, falls unconscious, or casts another spell, the anchor is broken causing the spell to end. Some circles of sorcery require the burning of karma as well as anchoring to maintain a spell.</p>
+<h2 id="helping-the-rr-understand-the-spell-being-cast"><a class="header" href="#helping-the-rr-understand-the-spell-being-cast">Helping the RR understand the spell being cast</a></h2>
+<p>Most attack spells are pretty straightforward. The conjurer announces spell and targets. The RR rolls resistance dice and informs the conjurer of the number they need for success. The conjurer decides on power level and whether to take spellburn if it fails.</p>
+<p>Other spells might be less clear-cut. This is where arbitration with the RR may come in. After you make a case for the spell, your RR will decide on the validity of the spell and the number of resistance dice you must beat to cast it. Remember that the RR has the final word on spell casting. If you decide the spell would be too hard to cast, you can always switch to another spell.</p>
+<p>Creating your own spells on the ﬂy is fun but will take up time at the table. Be careful to not make your spell too complicated and difficult to explain. If the process is bogging down the game, consider using a simpler spell.</p>
+<h2 id="scrolls-offer-spells-from-all-circles-of-sorcery"><a class="header" href="#scrolls-offer-spells-from-all-circles-of-sorcery">Scrolls offer spells from all circles of sorcery</a></h2>
+<p>Scrolls can be found that have specific spells on them. Once used the scroll burns up and can not be used again. The scroll is cast at a preset power level (2D6, 1s are rerolled).</p>
+<h2 id="conjurers-hedge-wizards-and-skalds-use-scrolls"><a class="header" href="#conjurers-hedge-wizards-and-skalds-use-scrolls">Conjurers, hedge wizards, and skalds use scrolls</a></h2>
+<p>Potions are effortless to ingest, but scrolls require the reading of magick language. Additionally, quaffing a potion is a free action but using a scroll is your turn action.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="combat.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="miracles.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="combat.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="miracles.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

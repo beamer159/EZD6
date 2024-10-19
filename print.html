@@ -1,0 +1,709 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>EZD6</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="character_creation.html"><strong aria-hidden="true">1.</strong> Character Creation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hero_paths.html"><strong aria-hidden="true">1.1.</strong> Hero Paths</a></li><li class="chapter-item expanded "><a href="species.html"><strong aria-hidden="true">1.2.</strong> Species</a></li><li class="chapter-item expanded "><a href="inclinations.html"><strong aria-hidden="true">1.3.</strong> Inclinations</a></li><li class="chapter-item expanded "><a href="aspects.html"><strong aria-hidden="true">1.4.</strong> Aspects</a></li><li class="chapter-item expanded "><a href="circles_of_sorcery.html"><strong aria-hidden="true">1.5.</strong> Circles of Sorcery</a></li></ol></li><li class="chapter-item expanded "><a href="how_to_play.html"><strong aria-hidden="true">2.</strong> How To Play</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rolls.html"><strong aria-hidden="true">2.1.</strong> Rolls</a></li><li class="chapter-item expanded "><a href="karma.html"><strong aria-hidden="true">2.2.</strong> Karma</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">2.3.</strong> Actions</a></li><li class="chapter-item expanded "><a href="combat.html"><strong aria-hidden="true">2.4.</strong> Combat</a></li><li class="chapter-item expanded "><a href="magick.html"><strong aria-hidden="true">2.5.</strong> Magick</a></li><li class="chapter-item expanded "><a href="miracles.html"><strong aria-hidden="true">2.6.</strong> Mircacles</a></li><li class="chapter-item expanded "><a href="equipment.html"><strong aria-hidden="true">2.7.</strong> Equipment</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EZD6</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="character-creation"><a class="header" href="#character-creation">Character Creation</a></h1>
+<ol>
+<li>Choose a <a href="hero_paths.html">hero path</a>
+<ul>
+<li>This will be your role in the party</li>
+</ul>
+</li>
+<li>Choose a <a href="species.html">species</a>
+<ul>
+<li>The classic fantasy species are represented and give your hero some extra abilities</li>
+</ul>
+</li>
+<li>Choose <a href="inclinations.html">inclinations</a>
+<ul>
+<li>Useful abilities and powers to further define your hero</li>
+<li>Choose 3 for humans, 2 for other species</li>
+</ul>
+</li>
+<li>Create <a href="aspects.html">aspects</a>
+<ul>
+<li>Created by you to round out your hero concept</li>
+<li>Create 2, can be created during game play</li>
+</ul>
+</li>
+<li>If Conjurer, choose a <a href="circles_of_sorcery.html">circle of sorcery</a>
+<ul>
+<li>The circle you choose is important and defines the type of spell caster you want to play</li>
+</ul>
+</li>
+<li>Choose equipment
+<ul>
+<li>Your selection of weapons is chosen by you (clear your choice with the RR). Roll for the Rabble Rouser and they will tell you what gear you start with as well as potions or scrolls if you begin with any.  Starting armor is determined by your hero path choice in step one.</li>
+</ul>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hero-paths"><a class="header" href="#hero-paths">Hero Paths</a></h1>
+<ul>
+<li><a href="hero_paths.html#warrior">Warrior</a></li>
+<li><a href="hero_paths.html#warden">Warden</a></li>
+<li><a href="hero_paths.html#delver">Delver</a></li>
+<li><a href="hero_paths.html#brute">Brute</a></li>
+<li><a href="hero_paths.html#rascal">Rascal</a></li>
+<li><a href="hero_paths.html#conjurer">Conjurer</a></li>
+<li><a href="hero_paths.html#friar">Friar</a></li>
+<li><a href="hero_paths.html#skald">Skald</a></li>
+<li><a href="hero_paths.html#beastmaster">Beastmaster</a></li>
+</ul>
+<h2 id="warrior"><a class="header" href="#warrior">Warrior</a></h2>
+<p><em>Always on the front line dealing pain to those who oppose you.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Heavy (Save against wounds on a 3+ with shield / 4+ without / miraculous save 6)</li>
+<li><strong>Boon</strong>: Melee and strength tasks</li>
+</ul>
+<p><em>Shield Sacrifice</em> - As a free action (once per scene) you can deflect all attack damage from yourself or a close ally for this round but your shield breaks and is destroyed. This maneuver can even be activated after the damage has been inflicted. Your armor Save then goes from 3+ to 4+ (You can avoid the break by spending 5 karma).</p>
+<p><em>Brutal Strikes</em> - You are a master of two-handed weapons. You crit on a 5-6 instead of just a 6. (No shield)</p>
+<p><em>Dual Weapons</em> - You are deadly when using two weapons. You have an extra boon when fighting with dual weapons so you roll 3D6 to attack and take the highest die. (No shield)</p>
+<h2 id="warden"><a class="header" href="#warden">Warden</a></h2>
+<p><em>Few can escape your over-land tracking skills and deadeye shots.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Medium (Save against wounds on a 5+ / miraculous save 6)</li>
+<li><strong>Boon</strong>: Ranged weapons and wilderness tasks</li>
+</ul>
+<p><em>Trailfinder</em> - You can follow traces left by passing creatures.</p>
+<p><em>Forager</em> - You can sustain yourself in the outdoors. You can also sustain others depending on the size of the group and circumstances.</p>
+<h2 id="delver"><a class="header" href="#delver">Delver</a></h2>
+<p><em>You call dark holes and dank dungeons home.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Medium (Save against wounds on a 5+ / miraculous save 6)</li>
+<li><strong>Boon</strong>: Melee or ranged weapons and spelunking / subterranean exploration tasks</li>
+</ul>
+<p><em>Gear</em> - Always ready for a delve, you have a climbing kit with small but strong pitons looped with metal rings as a rope guide (X24), 50' of thin strong rope, 5 torches, a small hammer, and white chalk sticks.</p>
+<p><em>Jack</em> - You may pick a bonus inclination (If human pick 4, if another species pick 3).</p>
+<h2 id="brute"><a class="header" href="#brute">Brute</a></h2>
+<p><em>A terrifying force of iron muscle and primal rage.</em></p>
+<ul>
+<li><strong>Health</strong>: 5 Strikes</li>
+<li><strong>Armor</strong>: Light (Save against wounds on a 6 / miraculous save 6)</li>
+<li><strong>Boon</strong>: Melee and strength tasks</li>
+</ul>
+<p><em>Enrage</em> - You can sacrifice one of your own strikes to inflict an extra strike on a combat hit.</p>
+<p><em>Superstitious</em> - You have a boon to resist any magick you do not want to affect you.</p>
+<h2 id="rascal"><a class="header" href="#rascal">Rascal</a></h2>
+<p><em>Some may call you a criminal, but that depends on your perspective.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Light and quick on your feet (Save against wounds on a 6 but roll 2 dice and use the higher / roll the same for miraculous saves)</li>
+<li><strong>Boon</strong>: Acrobatic tasks</li>
+</ul>
+<p><em>Tricks</em> - As a free action, once per turn, you can avoid a single melee strike. Describe what you do to avoid the hit. Any attack roll except a 6 can be avoided.</p>
+<p><em>Gank</em> - If you surprise a foe or an enemy is engaged with another combatant, you roll 2D6 attack dice and do a wound for each die that hits (each hit can still crit).</p>
+<h2 id="conjurer"><a class="header" href="#conjurer">Conjurer</a></h2>
+<p><em>A master of the powerful forces of magick.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Light (Save against wounds on a 6 / miraculous save 6)</li>
+<li><strong>Boon</strong>: Magickal mystery tasks</li>
+</ul>
+<p><em>Mystic Barrier</em> - As an action you can shield yourself with magic until it absorbs a hit or you fall unconscious.</p>
+<p><em>Master of Magick</em> - Gain mastery in one circle of sorcery.</p>
+<p><em>Seeker of Sorcery</em> - Can cast magick from scrolls. Start the game with two random scrolls.</p>
+<p><em>Wand or Staff</em> - You can shoot mystic bolts from a wand or staff. This is a ranged attack hitting one target and rolling 1D6; cannot crit and will only ever do one strike on a hit.</p>
+<h2 id="friar"><a class="header" href="#friar">Friar</a></h2>
+<p><em>A holy roller, a pious servant or a crackpot... You decide.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Medium (Save vs. wounds 5+) Blessed (miraculous save 5+)</li>
+<li><strong>Boon</strong>: Resisting heretical powers (magick) and religious knowledge tasks</li>
+</ul>
+<p><em>Empathic Healing</em> - Heal anyone within near range by absorbing one strike (they heal one, you gain one) as a free action.</p>
+<p><em>Holy Light</em> - As an action you call down a holy light. The light can either heal nearby allies or damage enemies. To heal, roll dice equal to the number of near allies. For each 4+ rolled you heal one strike on each ally of your choice. You may attack enemies near you for 1 strike each or 2 to undead and demons. Holy Light can be used once a day unless you spend 5 karma to recover the ability. (Note - Unlike normal miracles or magick you can use karma to boost rolls to 4.)</p>
+<h2 id="skald"><a class="header" href="#skald">Skald</a></h2>
+<p><em>Stories are your trade and legends your inspiration.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Medium (Save vs. wounds on a 5+) Prognostication (miraculous save 5+)</li>
+<li><strong>Boon</strong>: Lore tasks and performance</li>
+</ul>
+<p><em>Scrollmaster</em> - You can cast magick from scrolls. You start the game with two random scrolls.</p>
+<p><em>Traveler</em> - On your travels you have had ample opportunity to hone a skill. Pick a skill (examples, melee, acrobatics, streetsmart, observation etc...) and gain a boon in that ability.</p>
+<p><em>Strands of Fate</em> - As one who has studied the omens, you have the ability to manipulate luck in favor of the party. Party members can use karma against the Rabble Rouser when you are near. (Subtracting each karma spent on the RR rolls).</p>
+<h2 id="beastmaster"><a class="header" href="#beastmaster">Beastmaster</a></h2>
+<p><em>You have realized your gift with animals is rare and wonderful.</em></p>
+<ul>
+<li><strong>Health</strong>: 3 Strikes</li>
+<li><strong>Armor</strong>: Medium (Save against wounds on a 5+ / miraculous save 6)</li>
+<li><strong>Boon</strong>: Melee or ranged weapons and beast empathy</li>
+</ul>
+<p><em>Beastspeech</em> - You can speak to any animal.</p>
+<p><em>Beast Aid</em> - Given circumstances, you can convince beasts to aid you for a limited time.</p>
+<p><em>Beast Friend</em> - You can start the game with a beast companion. The beast is your friend, not your slave. It stays with you as long as well treated and protected. The beast can be up to medium size and has 2 Strikes or 1 Strike for a small animal. Consult with the RR for any boons your beast might have.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="species"><a class="header" href="#species">Species</a></h1>
+<h2 id="human"><a class="header" href="#human">Human</a></h2>
+<ul>
+<li>Pick a third inclination</li>
+</ul>
+<h2 id="elf"><a class="header" href="#elf">Elf</a></h2>
+<ul>
+<li><em>Twilight sight</em> - see twice as far in dim light</li>
+<li>Boon to resist mind-altering magicks.</li>
+</ul>
+<h2 id="dwarf"><a class="header" href="#dwarf">Dwarf</a></h2>
+<ul>
+<li><em>Tunnel sight</em> - See twice as far in dim light</li>
+<li>Boon to resist poison</li>
+</ul>
+<h2 id="halfling"><a class="header" href="#halfling">Halfling</a></h2>
+<ul>
+<li><em>Another breakfast</em> - Start with a healing potion (heals 2 strikes and can drink as a free action)</li>
+<li>Larger foes have difficulty hitting you. (+1 to your Target #)</li>
+</ul>
+<h2 id="goblin"><a class="header" href="#goblin">Goblin</a></h2>
+<ul>
+<li><em>Nooks and crannies</em> - As a move a goblin can jump into cover and avoid being attacked for a turn if they don’t attack. Cover or broken ground must be near the goblin.</li>
+<li><em>Night sight</em> - see twice as far in dim light</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="inclinations"><a class="header" href="#inclinations">Inclinations</a></h1>
+<p>Humans choose any 3, all others choose any 2</p>
+<p>The hero path is painting your hero in a broad stroke. Inclinations refine your hero with extra abilities and powers, that represent the unique background or skill set they possess.</p>
+<h2 id="alchemist"><a class="header" href="#alchemist">Alchemist</a></h2>
+<p>You know potion-making and have a boon in the identification of substances. Start with two free healing potions or roll random ones on the potion table. (Taking a potion is a free action.) (healing potion heals 2 strikes).</p>
+<h2 id="attuned"><a class="header" href="#attuned">Attuned</a></h2>
+<p>You can blind fight and escape areas of obscured vision that can befuddle the direction of others.</p>
+<h2 id="hatred-of-the-unholy"><a class="header" href="#hatred-of-the-unholy">Hatred of the Unholy</a></h2>
+<p>Your loathing and disgust with undead and demons empowers your melee attacks. If you roll a 6 while attacking an undead or demon, you automatically inflict a second strike and can continue to roll the crit.</p>
+<h2 id="born-blessed"><a class="header" href="#born-blessed">Born Blessed</a></h2>
+<p>You start each session with 6 karma instead of 3.</p>
+<h2 id="catlike"><a class="header" href="#catlike">Catlike</a></h2>
+<p>Can only ever be knocked prone if hit by a crit and have a 4+ miraculous save when falling.</p>
+<h2 id="check-mate"><a class="header" href="#check-mate">Check Mate</a></h2>
+<p>You can intercept foes before they reach a target near to you and they can not move away the next round without being punished. If they try to retreat or move away you get a free attack and if you hit them they can not move away (free action).</p>
+<h2 id="chirurgeon"><a class="header" href="#chirurgeon">Chirurgeon</a></h2>
+<p>You can heal allies 1 Strike given time and supplies between scenes. Start with a healing kit that has 6 uses.</p>
+<h2 id="craftperson"><a class="header" href="#craftperson">Craftperson</a></h2>
+<p>If building a hero with a vocation, see aspects.</p>
+<h2 id="dandy"><a class="header" href="#dandy">Dandy</a></h2>
+<p>Your demeanor encourages diplomatic or amenable solutions. Boon to all social checks.</p>
+<h2 id="danger-sense"><a class="header" href="#danger-sense">Danger Sense</a></h2>
+<p>You cannot be surprised and have a boon in avoiding traps.</p>
+<h2 id="devout"><a class="header" href="#devout">Devout</a></h2>
+<p>You are a pious follower and can call on your deity for miracles but the gods are notoriously fickle (see the miracles rules on p. 50).</p>
+<h2 id="faithful"><a class="header" href="#faithful">Faithful</a></h2>
+<p>Demons and Undead can only hit you on a 5+.</p>
+<h2 id="familiar"><a class="header" href="#familiar">Familiar</a></h2>
+<p>You have a small imp-like servant that will obey simple commands. You grow a teat somewhere on your body that the creature suckles a small quantity of blood every night. Those of holy disposition will never bond one of these creatures. (stats for the familiar can be found in the monster section).</p>
+<h2 id="fate-touched"><a class="header" href="#fate-touched">Fate Touched</a></h2>
+<p>You start with 2 hero dice.</p>
+<h2 id="fighter"><a class="header" href="#fighter">Fighter</a></h2>
+<p>You have a boon in melee weapons. (Note-If already trained you can't take this inclination. You can't be double trained).</p>
+<h2 id="hedge-wizard"><a class="header" href="#hedge-wizard">Hedge Wizard</a></h2>
+<p>You have no sorcery yourself but can use scrolls to cast spells. Start with 2 random spell scrolls.</p>
+<h2 id="inspiring"><a class="header" href="#inspiring">Inspiring</a></h2>
+<p>You can share your karma points with anyone you can see.</p>
+<h2 id="iron-will"><a class="header" href="#iron-will">Iron Will</a></h2>
+<p>You have a boon under mental attack or feared.</p>
+<h2 id="lockpicking"><a class="header" href="#lockpicking">Lockpicking</a></h2>
+<p>No lock can defeat you. As long as you have lockpicking tools, you can always succeed in picking a normal mechanical lock. Roll 1D6 to see how long it takes (lower roll takes longer). You start with a set of 3 lockpicks. A roll of 1 breaks your lockpicks.</p>
+<h2 id="marksman"><a class="header" href="#marksman">Marksman</a></h2>
+<p>You have a boon in ranged weapons. (Note-If already trained you can not take this inclination. You can not be double trained).</p>
+<h2 id="nimbus-of-light"><a class="header" href="#nimbus-of-light">Nimbus of Light</a></h2>
+<p>As a free action, you can summon a floating orb of light that follows you for the day. You can dispel it at any time but then must wait for the next day to summon it.</p>
+<h2 id="slippery"><a class="header" href="#slippery">Slippery</a></h2>
+<p>You can roll to escape any "bad situation" on a 4+ (grabbed, rock falls on you, etc...). Although you cannot escape a combat hit, you can roll to escape a grapple. This roll takes no action. It just happens.</p>
+<h2 id="sneaky"><a class="header" href="#sneaky">Sneaky</a></h2>
+<p>You have a boon in hiding and moving around unseen.</p>
+<h2 id="sticky-fingers"><a class="header" href="#sticky-fingers">Sticky Fingers</a></h2>
+<p>You can steal small objects from targets and remain unnoticed given the opportunity, unless you roll a 1.</p>
+<h2 id="sweep-or-swift-attack"><a class="header" href="#sweep-or-swift-attack">Sweep or Swift Attack</a></h2>
+<p>You can melee attack all enemies next to you as your action (roll for each target).</p>
+<h2 id="thaumaturgy"><a class="header" href="#thaumaturgy">Thaumaturgy</a></h2>
+<p>You know minor magick tricks. These are non-harmful manifestations like moving small objects slowly or solitary minor illusions like sight/sound/smell. They must be concentrated on and are quick to fade away.</p>
+<h2 id="tough-bastard"><a class="header" href="#tough-bastard">Tough Bastard</a></h2>
+<p>When you would take your last strike roll a 4+ on a single die. If you succeed, power through and do not take the strike.</p>
+<h2 id="trapfinder"><a class="header" href="#trapfinder">Trapfinder</a></h2>
+<p>You have a boon spotting and disabling traps.</p>
+<h2 id="treasure-sense"><a class="header" href="#treasure-sense">Treasure Sense</a></h2>
+<p>You have a nose for finding hidden treasure and will always sense it if nearby.</p>
+<h2 id="victory-in-failure"><a class="header" href="#victory-in-failure">Victory in Failure</a></h2>
+<p>You gain two karma for every failed roll.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aspects"><a class="header" href="#aspects">Aspects</a></h1>
+<p>Aspects are player-created traits and a great way to round out the concept of your Pusher &amp; Shover.</p>
+<p>In addition to Hero Paths, inclinations, and species, characters start with two 'aspects'. An aspect is a single-line description that describes a hero's history, physical trait, or mannerisms. Try to avoid statements that overlap with Hero paths or inclinations. Aspects give a hero some background beyond the rules. It is perfectly acceptable to delay picking aspects and insert them into the game as you discover the kind of character you want to be.</p>
+<p>Here are some examples:</p>
+<ul>
+<li>Well-known cook</li>
+<li>A lover of some renown</li>
+<li>Fast on your feet</li>
+<li>A collector of trinkets</li>
+<li>Never show emotion</li>
+<li>Champion gladiator</li>
+<li>Perfume collector</li>
+<li>Studied as a scribe</li>
+<li>Brooding and mysterious</li>
+<li>Devastatingly handsome</li>
+<li>Traveled with a troupe as a contortionist</li>
+<li>A highly refined sense of smell</li>
+<li>An eternal optimist</li>
+<li>A light sleeper</li>
+</ul>
+<h2 id="benefits-of-aspects-besides-role-playing"><a class="header" href="#benefits-of-aspects-besides-role-playing">Benefits of aspects besides role playing</a></h2>
+<p>Players can use an aspect to gain a boon to a roll that pertains to the aspect. Players then role play or make the case why the aspect is pertinent and the RR makes the final determination.</p>
+<p>Note - If playing in an open world or one-shot, players are free to make up names of locations. If playing in an established world consult the Rabble Rouser.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="circles-of-sorcery"><a class="header" href="#circles-of-sorcery">Circles of Sorcery</a></h1>
+<p>Circles represent a broad category of magick the conjurer has mastered. Conjurers can also acquire scrolls that contain specific spells on them that burn up upon use.</p>
+<ul>
+<li><a href="circles_of_sorcery.html#arcane-bands">Arcane Bands</a></li>
+<li><a href="circles_of_sorcery.html#blastmaster">Blastmaster</a></li>
+<li><a href="circles_of_sorcery.html#botanicalist">Botanicalist</a></li>
+<li><a href="circles_of_sorcery.html#elementalist">Elementalist</a></li>
+<li><a href="circles_of_sorcery.html#illusionist">Illusionist</a></li>
+<li><a href="circles_of_sorcery.html#necromancer">Necromancer</a></li>
+<li><a href="circles_of_sorcery.html#seer">Seer</a></li>
+<li><a href="circles_of_sorcery.html#shadoweaver">Shadoweaver</a></li>
+<li><a href="circles_of_sorcery.html#shapeshifter">Shapeshifter</a></li>
+</ul>
+<h2 id="arcane-bands"><a class="header" href="#arcane-bands">Arcane Bands</a></h2>
+<p>Strands of magickal energy whip out from the caster like long tentacles and can be used to move objects or grapple enemies. Moving or grappling a man is easy. Something as large as an elephant or multiple targets is harder!</p>
+<p>Anything near the Conjurer can be reached. Maintain the anchor to sustain the bands. Those ensnared can try to break free as a turn action on a roll of 6.</p>
+<h2 id="blastmaster"><a class="header" href="#blastmaster">Blastmaster</a></h2>
+<p>You are addicted to the raw energy of magick. It courses through you often sparking in static discharges. You have little interest in the subtleties of magick. You want to blow things up. Your mastery of magick deals with little more than casting flashing, purple and blue arcs of destructive energy.</p>
+<p>The raw stuff of chaos is highly damaging and inflicts 2 strikes per hit. If an attacker hits the mage with a melee attack roll of 1, then the attacker takes one strike as magick arcs from the conjurer. Unfortunately, your addiction comes with a downside. The danger of spellburn poses a greater risk.</p>
+<h3 id="spellburn-risk-d6"><a class="header" href="#spellburn-risk-d6">Spellburn Risk (D6)</a></h3>
+<ol>
+<li>Hideous scar and 1 strike</li>
+<li>Unusual looking eyes and 1 strike (you choose what your eyes now look like.)</li>
+<li>Unnatural hair color and 1 strike (you choose what color your hair is now.)</li>
+<li>Lose 1 karma and 1 strike</li>
+<li>Lose all karma and 1 strike.</li>
+<li>Discharge raw magic into a nearby enemy obliterating them or cause a strange magical effect.</li>
+</ol>
+<p><strong>Magic Detector</strong> - As one who is highly attuned to magickal energies you can detect nearby sources of magick or magickally imbued items.</p>
+<h2 id="botanicalist"><a class="header" href="#botanicalist">Botanicalist</a></h2>
+<p>You control plants and can cause plant life to spring into being and quickly grow. The growth takes a turn and larger plants will take more time. Examples of this power include a wall of thorns or a vine
+growing up like a rope.</p>
+<p>The plants require spell anchoring to maintain; loss of the anchor causes a plant to quickly wither and rot away. Plants will never intentionally injure or restrain you.</p>
+<p>Enemies ensnared can try to break free on their turn as an action on a roll of 6.</p>
+<h2 id="elementalist"><a class="header" href="#elementalist">Elementalist</a></h2>
+<p>You are a conjurer who is a master of a particular element. Fire, Earth, Air, or Water. The elementalist must pick one. Bolts of elemental energy fired at a target inflict one strike and cause an additional effect.</p>
+<ul>
+<li><strong>Fire</strong> - Target catches on fire</li>
+<li><strong>Water</strong> - Drenches target making them clumsy</li>
+<li><strong>Air</strong> - Knock over or push the target</li>
+<li><strong>Earth</strong> - Slows the target</li>
+</ul>
+<p>The elementalist can also create effects with a particular element. This is a huge strain and the elementalist can only sustain the effect for one round +1 per karma spent and also requires spell anchoring.</p>
+<p>Some examples:</p>
+<ul>
+<li><strong>Fire</strong> - Wall of fire</li>
+<li><strong>Water</strong> - Near area becomes slick or muddy</li>
+<li><strong>Air</strong> - Slowly lift or slow drop up to a dozen allies</li>
+<li><strong>Earth</strong> - Earth bridge across a chasm</li>
+</ul>
+<p>Elementalists can also do small tricks with their element. These can do such things as instantly light a torch or slowly fill a cup with water. Allow players to be creative.</p>
+<p><strong>Extra damage</strong> - Elementalists can do an extra strike of damage against a target that is susceptible to the element they manipulate with the approval of the RR.</p>
+<h2 id="illusionist"><a class="header" href="#illusionist">Illusionist</a></h2>
+<p>The minds of others are your canvas... projecting images into the thoughts of others. Your illusions can be anything you can imagine and any size you can conceive.</p>
+<p>Illusions tested or 'found out' vanish. An illusory monster, for example, vanishes when attacked. Someone who was tricked becomes skeptical and is hard to trick again within the same scene. An illusion hiding a dangerous terrain feature could end up injuring or killing the victim before they have a chance to realize the illusion hid danger. Anyone physically hurt is no longer under the spell. The spell anchor must be maintained to sustain any illusion.</p>
+<p>Illusionists can target additional foes all at once.</p>
+<ul>
+<li>One target has 1D6 defense roll</li>
+<li>A small group of beings have a 2D6 defense roll</li>
+<li>A large group of beings have a 3D6 defense roll</li>
+<li>Certain enemies may use bonus dice to resist</li>
+</ul>
+<h2 id="necromancer"><a class="header" href="#necromancer">Necromancer</a></h2>
+<p>Your powers focus on undeath. Many people fear and despise necromancers so they often conceal their abilities.</p>
+<p>As a necromancer, you can raise mindless undead to serve you or speak with the dead in a limited capacity. Necromancers can try to keep intelligent undead at bay but can not control them.</p>
+<p>Necromancers often carry a skull that cannot move of its own accord, but can speak. It can tirelessly watch an area or convey messages from its master.</p>
+<h2 id="seer"><a class="header" href="#seer">Seer</a></h2>
+<p>The probabilities of the universe swirl around you. By entering a trance you can predict future events or divine the best course of action.</p>
+<p>The inspirations that come to you are often jumbled and obscure and must be interpreted by you. You possess <strong>psychometry</strong>, the ability to read objects. This often comes in the form of visions and will give you a clue to the history of the object as well as if the object is magickal and how it works.</p>
+<p>A <strong>spirit companion</strong> accompanies you and is often a personage from the past. Only you can see and interact with the spirit. This is why others often think of Seers as eccentric and a bit off-kilter. You also have <strong>precognition</strong> and can avoid any damaging attack on a 3+. If you make your save the melee attacker injures itself for 1 strike.</p>
+<h2 id="shadoweaver"><a class="header" href="#shadoweaver">Shadoweaver</a></h2>
+<p>This conjurer has an affinity for manipulating the stuff of shadows and darkness.</p>
+<p>Examples of this power would be a cloak of darkness that conceals friends or blinding shadows that block light to the eyes of enemies. These effects cause a bane to the affected target(s).</p>
+<p>Shadows have no mass so can not move or restrain physical objects.</p>
+<p>Using shadow spells in a brightly lit area or in sunlight is a huge strain. The shadoweaver can only sustain the effect for one round +1 per karma spent.</p>
+<p>Spell anchoring must be maintained to sustain any shadows. As a side effect of this power, a shadoweaver can see in total darkness or absence of all natural light.</p>
+<h2 id="shapeshifter"><a class="header" href="#shapeshifter">Shapeshifter</a></h2>
+<p>You can shapeshift to any natural animal that exists in the world that the conjurer has seen. The animal can be as small as a bug or large as a horse. Spell anchoring is more robust for a shifter and they must be hit with a confirmed crit to break a transformation.</p>
+<p>A small animal can only take one strike then the shifter loses the form and reverts to its original form with 1 strike. A medium animal has 3 strikes like a normal character and a large animal gains an extra strike.</p>
+<p>If the conjurer is in narrative time they can shift without difficulty as they have no time constraints. In action time, the conjurer must beat the resistance die number to cast the spell and shift. Consult with the RR to add animal boons to your beast forms. The RR will make flying, small and or fast animals harder to hit.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-play"><a class="header" href="#how-to-play">How To Play</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rolls"><a class="header" href="#rolls">Rolls</a></h1>
+<h2 id="the-core-mechanic"><a class="header" href="#the-core-mechanic">The core mechanic</a></h2>
+<p>The Player states to the Rabble Rouser what they want their hero to do. The RR will tell the player the number they have to roll on a six sided die to succeed.  For example, if a hero wants to stab an enemy with their blade, the RR asks the hero to roll a 3 or more on the D6. If the player rolls less than a 3, they fail. Otherwise, they succeed and harm the enemy. It is as simple as that.</p>
+<h2 id="is-a-task-easy-or-hard"><a class="header" href="#is-a-task-easy-or-hard">Is a task easy or hard?</a></h2>
+<p>The RR will decide on the number you must meet or beat for success. The range is between 2-6 as 1 is always a failure. Higher numbers are for harder tasks. For most combat situations you will need to roll a 3 or higher to hit your target and the enemies will need a 3 to hit you. The RR will use lower or higher numbers for special circumstances.</p>
+<h2 id="what-about-differences-between-characters"><a class="header" href="#what-about-differences-between-characters">What about differences between characters?</a></h2>
+<p>In many game systems you build heroes with attributes and skills represented by numbers. These systems slow down play because you often need to reference the numbers on your hero sheet or add them to your dice rolls. In EZD6, the stats are replaced by a simple mechanic called a boon.</p>
+<h2 id="training-is-a-boon"><a class="header" href="#training-is-a-boon">Training is a boon</a></h2>
+<p>The EZD6 system easily addresses differences in heroes by simply applying an additional die to a roll, or boon, to tasks where the hero may have specific training. So, when rolling for a trained task, roll two dice instead of one and keep the highest result!</p>
+<p>This little difference lets players train all kinds of things, to double their chances of success. Rolling to beat a five? It’s a lot easier with two dice than one!</p>
+<h2 id="an-exceptionally-hard-task-may-incur-a-bane"><a class="header" href="#an-exceptionally-hard-task-may-incur-a-bane">An exceptionally hard task may incur a bane</a></h2>
+<p>Most of the time the difficulty scale is adequate, but sometimes an action is so problematic it requires a bane. Things like fighting in total darkness or doing another task while on fire count as a bane. In this case, the hindered hero rolls two dice instead of one and keeps the lower result. If skilled, but afflicted with a bane, the hero goes back to only rolling one die. Skill cancels the bane out.</p>
+<h2 id="can-i-help-a-fellow-adventurer-with-a-task"><a class="header" href="#can-i-help-a-fellow-adventurer-with-a-task">Can I help a fellow adventurer with a task?</a></h2>
+<p>Heroes can give up their future action in the turn to help another player. That player rolls a die and treats it like a boon rolled in the check. For example, a conjurer with the magickal mystery boon gets to roll 2D6 when trying to decipher a scroll of lore.</p>
+<p>The player assisting the conjurer has the aspect of training with a scribe. The RR rules that the aspect fits with the task and would allow the scribe to roll a die also.</p>
+<p>Three die have been rolled for the check and the final number will be the highest of the three.. Since the scribe helped the conjurer this turn remember that the scribe loses their turn action.</p>
+<h2 id="oh-crap-i-rolled-a-one"><a class="header" href="#oh-crap-i-rolled-a-one">Oh crap, I rolled a one</a></h2>
+<p>Rolling a  1 is always a failure and the RR can put that hero in a sticky situation depending on the action happening in the story at that particular time. Did the hero just petition the local lord for aid? Perhaps they inadvertently insult said noble. Did a hero want to swing from a rope? Perhaps the rope breaks and the hero smashes into the enemy like a bowling ball into pins. A hero still has a chance to recover from a failed roll. See ‘hero die’ below.</p>
+<h2 id="kickass-i-rolled-a-six"><a class="header" href="#kickass-i-rolled-a-six">Kickass! I rolled a six</a></h2>
+<p>Rolling a 6 is always a success. What happens is determined by what is possible for the hero in that setting. Let the player have fun with the success and allow them to narrate a cool outcome for the roll. In combat, rolling a 6 has an added benefit. See the ‘crit rule’.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="karma"><a class="header" href="#karma">Karma</a></h1>
+<h2 id="karma-a-heros-way-to-shrug-off-bad-luck"><a class="header" href="#karma-a-heros-way-to-shrug-off-bad-luck">Karma, a hero’s way to shrug off bad luck</a></h2>
+<p>Heroes often have luck on their side. How many times in stories have you seen a down-and-out hero suddenly turn the tide on gloating enemies. These are awesome moments and karma is the mechanic in this game that represents heroes’ shifting luck.</p>
+<h2 id="how-do-i-get-karma"><a class="header" href="#how-do-i-get-karma">How do I get Karma?</a></h2>
+<p>3 karma are awarded to each hero at the start of the session. The RR can also award karma for excellent role playing moments but the most common way to acquire karma is through failure. Whenever a hero fails an action roll they gain one karma. It sucks to fail a roll and receiving a karma to use later helps take away the sting of failure and ensures that no matter how bad a player rolls they will bank karma for later. You can only ever get one karma a turn no matter how many rolls you fail.</p>
+<h2 id="how-do-i-use-karma"><a class="header" href="#how-do-i-use-karma">How do I use Karma?</a></h2>
+<p>Karma can be turned in to improve almost any die roll on a one pip per one karma point basis. If this changes your roll to a success you do the task you were going for and lose karma used. If your roll becomes a 6 in combat follow the crit rule. There is no limit to the total number of karma a player can horde or use in a turn. When you accept karma for a failed roll, you cannot then use the karma gained for that turn’s rolls.</p>
+<h2 id="is-there-anything-i-cant-use-karma-on"><a class="header" href="#is-there-anything-i-cant-use-karma-on">Is there anything I can’t use Karma on?</a></h2>
+<p>Yes, karma cannot be used on magick or miracles. The ebb and flow of magick and the fickleness of the gods prevent bending by karma. More on this later when we talk about magick and miracles. Karma can not be used to modify a 1 but a hero die can.</p>
+<h2 id="calling-on-your-inner-strength-the-hero-die"><a class="header" href="#calling-on-your-inner-strength-the-hero-die">Calling on your inner strength: the Hero Die</a></h2>
+<p>At the start of the session, each hero gets a Hero Die. This can be burned anytime in the game to re-roll a die. Even if you rolled a 1. Once used the die is discarded but can be reacquired anytime by spending five Karma to retrieve it.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actions"><a class="header" href="#actions">Actions</a></h1>
+<h2 id="what-can-i-do-on-my-turn"><a class="header" href="#what-can-i-do-on-my-turn">What can I do on my turn?</a></h2>
+<p>Heroes get a move, a turn action, and a free action per turn. The RR takes the turn of all the enemies after every player has had a turn.</p>
+<h2 id="wait-for-it-wait-for-it"><a class="header" href="#wait-for-it-wait-for-it">Wait for it, wait for it...</a></h2>
+<p>A hero can delay their turn to wait and see what the enemy will do. The hero can then interrupt the enemy turn at any point and take their own turn. The enemy completes their turn after the player finishes. Delays allow players to coordinate attacks and create cool strategies. The trade off is that the hero can not take a run action and they lose their free action. Delaying a turn can be useful for situations where a flying creature out of melee range is about to swoop in to attack or when heroes are waiting to ambush a hidden enemy.</p>
+<h2 id="turn-actions"><a class="header" href="#turn-actions">TURN ACTIONS</a></h2>
+<ul>
+<li>Attack a target</li>
+<li>Cast a spell</li>
+<li>Use a scroll</li>
+<li>Pick up a dropped weapon</li>
+<li>Arm a shield (warrior)</li>
+<li>Disarm a trap (At least one action or possibly more)</li>
+<li>Pick up a dropped weapon</li>
+<li>Run - move further by sacrificing your action</li>
+<li>Arm a shield (warrior)</li>
+<li>Any other action deemed by the RR to require an action</li>
+</ul>
+<h2 id="free-actions"><a class="header" href="#free-actions">FREE ACTIONS</a></h2>
+<ul>
+<li>Speak to an enemy or neutral character</li>
+<li>Take a potion</li>
+<li>Draw or sheath a weapon</li>
+<li>Some inclinations use your free action</li>
+<li>Any other action deemed by the RR to be a free action</li>
+</ul>
+<h2 id="how-far-can-i-move"><a class="header" href="#how-far-can-i-move">How far can I move?</a></h2>
+<p>Any interaction within thirty feet is considered <strong>near</strong> to a player and can be reached within a turn. An interaction farther than thirty feet will take a run action from the player or a second move and this is referred to as <strong>far</strong>. Difficult terrain like a slick surface or broken ground could keep a hero from making a run action if they fail a check. Long distances can be quite varied and take multiple turns to reach an enemy, but for the most part, the game will center around near and far encounters. Determination of near and far comes from the RR, made clear to heroes before any movement is made.</p>
+<h2 id="who-goes-first"><a class="header" href="#who-goes-first">Who goes first?</a></h2>
+<p>Unless the heroes are surprised by the enemy all the heroes take their turns first and then the enemies go. Heroes can go in any order. Make sure everyone gets a turn and then the RR gets a turn moving and attacking with all the enemies.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="combat"><a class="header" href="#combat">Combat</a></h1>
+<h2 id="do-i-have-10000-hit-points"><a class="header" href="#do-i-have-10000-hit-points">Do I have 10,000 Hit Points?</a></h2>
+<p>No. Having lots of health points adds too much fussy math. For most characters, it will be 3 strikes and you are out but having to take those strikes is another matter. Enemies can take more or fewer strikes depending on factors in the enemy and monster section.</p>
+<h2 id="how-do-i-recover-lost-strikes"><a class="header" href="#how-do-i-recover-lost-strikes">How do I recover lost strikes?</a></h2>
+<p>Magick and special abilities can help heroes heal strikes, however you can also recover one strike naturally by eating a meal and resting for the night.</p>
+<h2 id="how-much-damage-will-my-weapons-do"><a class="header" href="#how-much-damage-will-my-weapons-do">How much damage will my weapons do?</a></h2>
+<p><strong>One hit = one strike of damage.</strong> So, for example, whether you are hit by a club, great sword or dagger, you take one strike off your total. Giant weapons and siege weapons like ballistae inflict two strikes, but each strike can be saved separately. So it is possible to get hit by a large weapon, make one armor save, and still take one strike of damage.</p>
+<h2 id="the-crit-rule"><a class="header" href="#the-crit-rule">The Crit Rule</a></h2>
+<p>Rolling a 6 in combat is a crit and has the potential to cause more strikes of damage. Continue rolling one die for every consecutive 6 rolled inflict another strike. This is called “confirming the crit”. Karma can also be used to boost rolls to 6s. Keep rolling until either you do not roll a 6 or run out of karma. With enough luck or karma you could kill anything! Beware! Enemies can also inflict crits.</p>
+<p><em>“I crit multiple times but killed my enemy with the first strike. Do I lose the crit?”</em></p>
+<p>Confirmed crits permit unused strikes to be carried over to nearby targets. If you are a melee fighter, only opponents next to you can be hit. If you are ranged, you can choose targets within sight.</p>
+<h2 id="this-monster-is-trying-to-eat-me-how-can-i-escape"><a class="header" href="#this-monster-is-trying-to-eat-me-how-can-i-escape">This monster is trying to eat me. How can I escape?</a></h2>
+<p>There may be times when you want to restrain an enemy that is running away or escape from the jaws of a dragon trying to swallow you. These types of opposed actions are called <em>contests</em>. Think of them as one party wanting a certain outcome and the opposing party wants another.</p>
+<p>The RR and the hero roll against each other and the higher roll wins the contest. A tied result means both parties are still struggling to get the upper hand. As in most actions, you can use karma on this roll. Attempting any other action while in a contest will incur a bane.</p>
+<h2 id="armor-is-a-heros-first-line-of-defense"><a class="header" href="#armor-is-a-heros-first-line-of-defense">Armor is a hero’s first line of defense</a></h2>
+<p>Armor allows heroes to make an armor save after each strike they take. A successful roll avoids one strike. The hero who was hit takes the strike from any armor save they fail. If you are hit for multiple strikes of damage (like a crit) you get to make the roll for each strike point.</p>
+<ul>
+<li>Villains and enemies do not normally have a save roll feature.</li>
+<li>Remember that karma can be used to boost save rolls.</li>
+</ul>
+<h2 id="armor-wont-save-you-from-everything"><a class="header" href="#armor-wont-save-you-from-everything">Armor won’t save you from everything</a></h2>
+<p>Some events can happen that armor will not protect you from. In those cases make a <strong>miraculous save</strong> roll instead of an armor save. Events such as falling, fire, poison, or crushing rocks will require a miraculous save roll and will inflict one strike for every failed roll.</p>
+<h2 id="caught-in-a-certain-death-situation"><a class="header" href="#caught-in-a-certain-death-situation">Caught in a certain death situation</a></h2>
+<p>Some dramatic events may cause catastrophic damage to a character and kill a hero outright such as a massive cave-in or a large explosion. Heroes get a miraculous save roll instead of an armor save but only survive with one strike remaining <em>even if they make the roll</em>. Role play how you avoided certain death! Once again remember that karma can be used to boost save rolls.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="magick"><a class="header" href="#magick">Magick</a></h1>
+<h2 id="preparing-a-spell"><a class="header" href="#preparing-a-spell">Preparing a spell</a></h2>
+<p>The conjurer explains what spell they are casting to the RR. The RR then decides if the spell is targeted against a creature(s), an effect, or a beneficial spell with friendly targets. This exchange will help the RR decide on how many resistance dice to roll.</p>
+<h2 id="resistance-to-a-cast-spell"><a class="header" href="#resistance-to-a-cast-spell">Resistance to a cast spell</a></h2>
+<p>Most enemies or heroes resist spells with a 1D6 roll whereas others have a higher magick resistance and will roll more dice. Spells targeted against the environment instead of an enemy generally roll a 1D6 but the RR may decide to roll more dice depending on factors within the spell area.</p>
+<h2 id="powering-up-a-spell"><a class="header" href="#powering-up-a-spell">Powering up a spell</a></h2>
+<p>When a conjurer casts a spell they must decide the <strong>power level</strong> (PL = 1D6 to 3D6) they want to use. This means the conjurer has to choose whether to roll one, two, or three dice. The caster must equal or beat the resistance number of the highest resistance die roll of the target(s) on one of the power level dice rolled.</p>
+<p>The resistance dice will always be rolled and revealed first before the conjurer decides on the power level. If the highest resistance number ends up as a 1 the conjurer automatically casts the spell.</p>
+<h2 id="successfully-casting-a-spell"><a class="header" href="#successfully-casting-a-spell">Successfully casting a spell</a></h2>
+<p>The highest die rolled on a power level roll must equal or beat the highest resistance die. A PL of 6 will beat a 6 rolled by the RR on the resistance die. The potential problem is if any of the power level dice rolled are 1s. If so, the spell fails automatically unless the conjurer takes spellburn.</p>
+<p>Rolling more power level dice has a greater chance of equaling or beating a resistance roll but also gives you a better chance to roll a 1. If the resistance number you need to equal or beat is low consider rolling one or two dice instead of three.</p>
+<h2 id="spellburn-and-personal-sacrifice"><a class="header" href="#spellburn-and-personal-sacrifice">Spellburn and personal sacrifice</a></h2>
+<p>Manipulating the mystic energies is difficult and can be outright dangerous. A roll of a 1 when casting a spell means the energies do not manifest, but a conjurer may want to sacrifice life force to continue to cast a spell. A spell can still be cast by the conjurer taking a strike of damage for each 1 rolled. Otherwise, the spell fails.</p>
+<p>Karma cannot be used to boost power level spell rolls or resistance rolls but a hero die can be used to re-roll any single power level die including a 1.</p>
+<h2 id="conjurers-can-attack-multiple-enemies-with-a-spell"><a class="header" href="#conjurers-can-attack-multiple-enemies-with-a-spell">Conjurers can attack multiple enemies with a spell</a></h2>
+<p>Conjurers can attack up to six enemies but the strain is great and the defenses will be harder to overcome if spells are stretched over multiple targets. The targets must be within near proximity to each other. Each target above one adds an extra 1D6 to the resistance roll for the grouping. This means that either all the targeted enemies are hit or none are. For example, three targeted enemies defend against a spell at a 3D6. Certain enemies may use bonus dice to resist if included in the pool of targets.</p>
+<h2 id="conjurers-must-anchor-a-spell-to-maintain-it"><a class="header" href="#conjurers-must-anchor-a-spell-to-maintain-it">Conjurers must “anchor” a spell to maintain it</a></h2>
+<p>Some spells are not cast instantly and need to be maintained. Anchoring allows conjurers to embed and maintain an active, prolonged spell in their mind. The conjurer can do any other actions while anchoring a spell but if the conjurer takes a strike, falls unconscious, or casts another spell, the anchor is broken causing the spell to end. Some circles of sorcery require the burning of karma as well as anchoring to maintain a spell.</p>
+<h2 id="helping-the-rr-understand-the-spell-being-cast"><a class="header" href="#helping-the-rr-understand-the-spell-being-cast">Helping the RR understand the spell being cast</a></h2>
+<p>Most attack spells are pretty straightforward. The conjurer announces spell and targets. The RR rolls resistance dice and informs the conjurer of the number they need for success. The conjurer decides on power level and whether to take spellburn if it fails.</p>
+<p>Other spells might be less clear-cut. This is where arbitration with the RR may come in. After you make a case for the spell, your RR will decide on the validity of the spell and the number of resistance dice you must beat to cast it. Remember that the RR has the final word on spell casting. If you decide the spell would be too hard to cast, you can always switch to another spell.</p>
+<p>Creating your own spells on the ﬂy is fun but will take up time at the table. Be careful to not make your spell too complicated and difficult to explain. If the process is bogging down the game, consider using a simpler spell.</p>
+<h2 id="scrolls-offer-spells-from-all-circles-of-sorcery"><a class="header" href="#scrolls-offer-spells-from-all-circles-of-sorcery">Scrolls offer spells from all circles of sorcery</a></h2>
+<p>Scrolls can be found that have specific spells on them. Once used the scroll burns up and can not be used again. The scroll is cast at a preset power level (2D6, 1s are rerolled).</p>
+<h2 id="conjurers-hedge-wizards-and-skalds-use-scrolls"><a class="header" href="#conjurers-hedge-wizards-and-skalds-use-scrolls">Conjurers, hedge wizards, and skalds use scrolls</a></h2>
+<p>Potions are effortless to ingest, but scrolls require the reading of magick language. Additionally, quaffing a potion is a free action but using a scroll is your turn action.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mircacles"><a class="header" href="#mircacles">Mircacles</a></h1>
+<h2 id="heroes-with-devout-inclination-can-call-on-miracles"><a class="header" href="#heroes-with-devout-inclination-can-call-on-miracles">Heroes with devout inclination can call on miracles</a></h2>
+<p>You can ask a favor of your divine patron but the likelihood the deity will directly intervene is small. Roll up to three D6, like a conjurer, but instead of a power level, the roll represents the urgency of your prayer. The hero must equal or beat the aloofness roll of their deity to petition for a miracle. The RR will determine the number of aloofness dice rolled for the request. Example: resurrecting a fallen friend would be a 6D6 difficulty while a “speak to the dead” would be 3D6.</p>
+<p>Miracles can only be asked for once per situation and since the gods can be arrogant, no karma may be used. Miracles can not be used to harm another being or cause damage. Don’t forget the hero die can be used to re-roll any single prayer die.</p>
+<p>Rolling a 1 will automatically end your chance of a miracle. However, like spellburn for conjurers, <strong>offerings</strong> made to a deity by heroes with the devout inclination will receive a blessing to re-roll all the dice for a prayer once per day. The RR will stipulate whether the offering is sufficient to the request.</p>
+<h2 id="calling-on-miracles-and-the-rabble-rouser"><a class="header" href="#calling-on-miracles-and-the-rabble-rouser">Calling on miracles and the Rabble Rouser</a></h2>
+<p>Deities play their own games and rarely turn their eye on mortals. This means miracles will rarely happen even with their most devout followers.</p>
+<p>When you ask your god for a miracle, clearly explain what you intend so the RR can decide on the number of aloofness dice to roll as resistance to the prayer or even if your deity would grant such a miracle.</p>
+<p>The RR judgment is final. Remember that the gods will only ever grant one miracle a scene and or situation and will ignore any requests that break this rule.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="equipment"><a class="header" href="#equipment">Equipment</a></h1>
+<h2 id="lets-get-some-equipment"><a class="header" href="#lets-get-some-equipment">Let’s get some equipment</a></h2>
+<p>Most gear can be afforded by heroes of moderate wealth. This gear list is not exhaustive but gives a starting place for new heroes.</p>
+<h2 id="picking-gear-or-rolling-randomly"><a class="header" href="#picking-gear-or-rolling-randomly">Picking gear or rolling randomly?</a></h2>
+<p>When heroes are created, have them to pick an item from each group or you can have them <em>roll a D6 for each group</em> and receive the item rolled (I suggest rolling for fun randomness). Later at appropriate times in their travels, they can pick up more gear. Transport can be given out by the RR as needed by the requirements of the story.</p>
+<h2 id="armor"><a class="header" href="#armor">Armor</a></h2>
+<p>Heroes start with the type of armor listed in their hero path (light, medium or heavy). Like old school games, the hero paths can not upgrade armor type without interfering in their fighting or professional abilities. So a rascal that wears light armor can not upgrade to more protection without taking a bane to all rolls. From light armor to heavy armor = 2 steps = 2 bane dice.</p>
+<h2 id="decide-on-your-weaponry"><a class="header" href="#decide-on-your-weaponry">Decide on your weaponry.</a></h2>
+<p>Allow heroes to take any weapons that ﬁt their character concept within reason. Too many weapons could weigh down an adventurer and no one wants to be caught overloaded. Consult with the RR.</p>
+<p><strong>A note on ranged weapons</strong> - Being attacked in melee while armed with a ranged weapon gives you a bane to shoot until you can move away.</p>
+<h2 id="how-much-can-i-carry"><a class="header" href="#how-much-can-i-carry">How much can I carry?</a></h2>
+<p>There are no hard fast rules for how much a hero can carry so use the common sense rule. If the RR rules that a character is overloaded the RR will make action tests harder and may incur a bane if overwhelmingly overloaded.</p>
+<h2 id="common-gear"><a class="header" href="#common-gear">COMMON GEAR</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>GROUP 1</th><th>GROUP 2</th></tr></thead><tbody>
+<tr><td><ol><li>Thin but strong rope (50’)</li><li>Pole</li><li>Knife</li><li>Oilskin bag</li><li>Backpack</li><li>Preserved rations</li></ol></td><td><ol><li>Metal spikes (X24)</li><li>Metal tongs</li><li>Lantern</li><li>Torches (X5)</li><li>Nails</li><li>Sack</li></ol></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>GROUP 3</th><th>GROUP 4</th></tr></thead><tbody>
+<tr><td><ol><li>Flint &amp; steel</li><li>Waterskin</li><li>Small hammer</li><li>Flask of oil</li><li>Crowbar</li><li>Chisel</li></ol></td><td><ol><li>Grappling hook</li><li>Chalk sticks</li><li>Whistle</li><li>Horn</li><li>Padlock and key</li><li>Pot of grease</li></ol></td></tr>
+</tbody></table>
+</div>
+<h2 id="specialty-gear"><a class="header" href="#specialty-gear">SPECIALTY GEAR</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>GROUP 1</th><th>GROUP 2</th></tr></thead><tbody>
+<tr><td><ol><li>Smelling salts</li><li>Holy water</li><li>Perfume</li><li>Spyglass</li><li>Holy symbol</li><li>Manacles</li></ol></td><td><ol><li>Quill, ink and parchment</li><li>Makeup</li><li>Small bell</li><li>Air bladder</li><li>Magnifying lens</li><li>Incense</li></ol></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>GROUP 3</th><th>GROUP 4</th></tr></thead><tbody>
+<tr><td><ol><li>Poison antidote</li><li>Strong hooch</li><li>Bone dice</li><li>Caltrops</li><li>Profession tools</li><li>Hidden pocket</li></ol></td><td><ol><li>Lodestone</li><li>Handheld mirror</li><li>Exotic spices</li><li>Bellows</li><li>Fake jewels</li><li>Card deck</li></ol></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
