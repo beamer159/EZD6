@@ -1,0 +1,6 @@
+[book]
+authors = ["Brian Wirsing"]
+language = "en"
+multilingual = false
+src = "src"
+title = "EZD6"
