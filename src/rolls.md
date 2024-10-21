@@ -2,11 +2,11 @@
 
 ## The core mechanic
 
-The Player states to the Rabble Rouser what they want their hero to do. The RR will tell the player the number they have to roll on a six sided die to succeed.  For example, if a hero wants to stab an enemy with their blade, the RR asks the hero to roll a 3 or more on the D6. If the player rolls less than a 3, they fail. Otherwise, they succeed and harm the enemy. It is as simple as that.
+The Player states to the GM what they want their hero to do. The GM will tell the player the number they have to roll on a six sided die to succeed.  For example, if a hero wants to stab an enemy with their blade, the RR asks the hero to roll a 3 or more on the D6. If the player rolls less than a 3, they fail. Otherwise, they succeed and harm the enemy. It is as simple as that.
 
 ## Is a task easy or hard?
 
-The RR will decide on the number you must meet or beat for success. The range is between 2-6 as 1 is always a failure. Higher numbers are for harder tasks. For most combat situations you will need to roll a 3 or higher to hit your target and the enemies will need a 3 to hit you. The RR will use lower or higher numbers for special circumstances.
+The GM will decide on the number you must meet or beat for success. The range is between 2-6 as 1 is always a failure. Higher numbers are for harder tasks. For most combat situations you will need to roll a 3 or higher to hit your target and the enemies will need a 3 to hit you. The GM will use lower or higher numbers for special circumstances.
 
 ## What about differences between characters?
 
@@ -26,13 +26,13 @@ Most of the time the difficulty scale is adequate, but sometimes an action is so
 
 Heroes can give up their future action in the turn to help another player. That player rolls a die and treats it like a boon rolled in the check. For example, a conjurer with the magickal mystery boon gets to roll 2D6 when trying to decipher a scroll of lore.
 
-The player assisting the conjurer has the aspect of training with a scribe. The RR rules that the aspect fits with the task and would allow the scribe to roll a die also.
+The player assisting the conjurer has the aspect of training with a scribe. The GM rules that the aspect fits with the task and would allow the scribe to roll a die also.
 
 Three die have been rolled for the check and the final number will be the highest of the three.. Since the scribe helped the conjurer this turn remember that the scribe loses their turn action.
 
 ## Oh crap, I rolled a one
 
-Rolling a  1 is always a failure and the RR can put that hero in a sticky situation depending on the action happening in the story at that particular time. Did the hero just petition the local lord for aid? Perhaps they inadvertently insult said noble. Did a hero want to swing from a rope? Perhaps the rope breaks and the hero smashes into the enemy like a bowling ball into pins. A hero still has a chance to recover from a failed roll. See ‘hero die’ below.
+Rolling a  1 is always a failure and the GM can put that hero in a sticky situation depending on the action happening in the story at that particular time. Did the hero just petition the local lord for aid? Perhaps they inadvertently insult said noble. Did a hero want to swing from a rope? Perhaps the rope breaks and the hero smashes into the enemy like a bowling ball into pins. A hero still has a chance to recover from a failed roll. See ‘hero die’ below.
 
 ## Kickass! I rolled a six
 

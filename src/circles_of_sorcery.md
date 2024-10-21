@@ -63,7 +63,7 @@ Some examples:
 
 Elementalists can also do small tricks with their element. These can do such things as instantly light a torch or slowly fill a cup with water. Allow players to be creative.
 
-**Extra damage** - Elementalists can do an extra strike of damage against a target that is susceptible to the element they manipulate with the approval of the RR.
+**Extra damage** - Elementalists can do an extra strike of damage against a target that is susceptible to the element they manipulate with the approval of the GM.
 
 ## Illusionist
 
@@ -112,4 +112,4 @@ You can shapeshift to any natural animal that exists in the world that the conju
 
 A small animal can only take one strike then the shifter loses the form and reverts to its original form with 1 strike. A medium animal has 3 strikes like a normal character and a large animal gains an extra strike.
 
-If the conjurer is in narrative time they can shift without difficulty as they have no time constraints. In action time, the conjurer must beat the resistance die number to cast the spell and shift. Consult with the RR to add animal boons to your beast forms. The RR will make flying, small and or fast animals harder to hit.
+If the conjurer is in narrative time they can shift without difficulty as they have no time constraints. In action time, the conjurer must beat the resistance die number to cast the spell and shift. Consult with the GM to add animal boons to your beast forms. The GM will make flying, small and or fast animals harder to hit.

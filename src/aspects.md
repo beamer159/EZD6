@@ -23,6 +23,6 @@ Here are some examples:
 
 ## Benefits of aspects besides role playing
 
-Players can use an aspect to gain a boon to a roll that pertains to the aspect. Players then role play or make the case why the aspect is pertinent and the RR makes the final determination.
+Players can use an aspect to gain a boon to a roll that pertains to the aspect. Players then role play or make the case why the aspect is pertinent and the GM makes the final determination.
 
-Note - If playing in an open world or one-shot, players are free to make up names of locations. If playing in an established world consult the Rabble Rouser.
+Note - If playing in an open world or one-shot, players are free to make up names of locations. If playing in an established world consult the GM.

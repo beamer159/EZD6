@@ -6,7 +6,7 @@ Heroes often have luck on their side. How many times in stories have you seen a 
 
 ## How do I get Karma?
 
-3 karma are awarded to each hero at the start of the session. The RR can also award karma for excellent role playing moments but the most common way to acquire karma is through failure. Whenever a hero fails an action roll they gain one karma. It sucks to fail a roll and receiving a karma to use later helps take away the sting of failure and ensures that no matter how bad a player rolls they will bank karma for later. You can only ever get one karma a turn no matter how many rolls you fail.
+3 karma are awarded to each hero at the start of the session. The GM can also award karma for excellent role playing moments but the most common way to acquire karma is through failure. Whenever a hero fails an action roll they gain one karma. It sucks to fail a roll and receiving a karma to use later helps take away the sting of failure and ensures that no matter how bad a player rolls they will bank karma for later. You can only ever get one karma a turn no matter how many rolls you fail.
 
 ## How do I use Karma?
 

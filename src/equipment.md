@@ -6,7 +6,7 @@ Most gear can be afforded by heroes of moderate wealth. This gear list is not ex
 
 ## Picking gear or rolling randomly?
 
-When heroes are created, have them to pick an item from each group or you can have them *roll a D6 for each group* and receive the item rolled (I suggest rolling for fun randomness). Later at appropriate times in their travels, they can pick up more gear. Transport can be given out by the RR as needed by the requirements of the story.
+When heroes are created, have them to pick an item from each group or you can have them *roll a D6 for each group* and receive the item rolled (I suggest rolling for fun randomness). Later at appropriate times in their travels, they can pick up more gear. Transport can be given out by the GM as needed by the requirements of the story.
 
 ## Armor
 
@@ -14,13 +14,13 @@ Heroes start with the type of armor listed in their hero path (light, medium or 
 
 ## Decide on your weaponry.
 
-Allow heroes to take any weapons that ﬁt their character concept within reason. Too many weapons could weigh down an adventurer and no one wants to be caught overloaded. Consult with the RR.
+Allow heroes to take any weapons that ﬁt their character concept within reason. Too many weapons could weigh down an adventurer and no one wants to be caught overloaded. Consult with the GM.
 
 **A note on ranged weapons** - Being attacked in melee while armed with a ranged weapon gives you a bane to shoot until you can move away.
 
 ## How much can I carry?
 
-There are no hard fast rules for how much a hero can carry so use the common sense rule. If the RR rules that a character is overloaded the RR will make action tests harder and may incur a bane if overwhelmingly overloaded.
+There are no hard fast rules for how much a hero can carry so use the common sense rule. If the GM rules that a character is overloaded the GM will make action tests harder and may incur a bane if overwhelmingly overloaded.
 
 ## COMMON GEAR
 

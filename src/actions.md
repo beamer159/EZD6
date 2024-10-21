@@ -2,7 +2,7 @@
 
 ## What can I do on my turn?
 
-Heroes get a move, a turn action, and a free action per turn. The RR takes the turn of all the enemies after every player has had a turn.
+Heroes get a move, a turn action, and a free action per turn. The GM takes the turn of all the enemies after every player has had a turn.
 
 ## Wait for it, wait for it...
 
@@ -19,7 +19,7 @@ A hero can delay their turn to wait and see what the enemy will do. The hero can
 - Pick up a dropped weapon
 - Run - move further by sacrificing your action
 - Arm a shield (warrior)
-- Any other action deemed by the RR to require an action
+- Any other action deemed by the GM to require an action
 
 ## FREE ACTIONS
 
@@ -27,12 +27,12 @@ A hero can delay their turn to wait and see what the enemy will do. The hero can
 - Take a potion
 - Draw or sheath a weapon
 - Some inclinations use your free action
-- Any other action deemed by the RR to be a free action
+- Any other action deemed by the GM to be a free action
 
 ## How far can I move?
 
-Any interaction within thirty feet is considered **near** to a player and can be reached within a turn. An interaction farther than thirty feet will take a run action from the player or a second move and this is referred to as **far**. Difficult terrain like a slick surface or broken ground could keep a hero from making a run action if they fail a check. Long distances can be quite varied and take multiple turns to reach an enemy, but for the most part, the game will center around near and far encounters. Determination of near and far comes from the RR, made clear to heroes before any movement is made.
+Any interaction within thirty feet is considered **near** to a player and can be reached within a turn. An interaction farther than thirty feet will take a run action from the player or a second move and this is referred to as **far**. Difficult terrain like a slick surface or broken ground could keep a hero from making a run action if they fail a check. Long distances can be quite varied and take multiple turns to reach an enemy, but for the most part, the game will center around near and far encounters. Determination of near and far comes from the GM, made clear to heroes before any movement is made.
 
 ## Who goes first?
 
-Unless the heroes are surprised by the enemy all the heroes take their turns first and then the enemies go. Heroes can go in any order. Make sure everyone gets a turn and then the RR gets a turn moving and attacking with all the enemies.
+Unless the heroes are surprised by the enemy all the heroes take their turns first and then the enemies go. Heroes can go in any order. Make sure everyone gets a turn and then the GM gets a turn moving and attacking with all the enemies.

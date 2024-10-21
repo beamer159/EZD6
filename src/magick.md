@@ -2,11 +2,11 @@
 
 ## Preparing a spell
 
-The conjurer explains what spell they are casting to the RR. The RR then decides if the spell is targeted against a creature(s), an effect, or a beneficial spell with friendly targets. This exchange will help the RR decide on how many resistance dice to roll.
+The conjurer explains what spell they are casting to the GM. The GM then decides if the spell is targeted against a creature(s), an effect, or a beneficial spell with friendly targets. This exchange will help the GM decide on how many resistance dice to roll.
 
 ## Resistance to a cast spell
 
-Most enemies or heroes resist spells with a 1D6 roll whereas others have a higher magick resistance and will roll more dice. Spells targeted against the environment instead of an enemy generally roll a 1D6 but the RR may decide to roll more dice depending on factors within the spell area.
+Most enemies or heroes resist spells with a 1D6 roll whereas others have a higher magick resistance and will roll more dice. Spells targeted against the environment instead of an enemy generally roll a 1D6 but the GM may decide to roll more dice depending on factors within the spell area.
 
 ## Powering up a spell
 
@@ -16,7 +16,7 @@ The resistance dice will always be rolled and revealed first before the conjurer
 
 ## Successfully casting a spell
 
-The highest die rolled on a power level roll must equal or beat the highest resistance die. A PL of 6 will beat a 6 rolled by the RR on the resistance die. The potential problem is if any of the power level dice rolled are 1s. If so, the spell fails automatically unless the conjurer takes spellburn.
+The highest die rolled on a power level roll must equal or beat the highest resistance die. A PL of 6 will beat a 6 rolled by the GM on the resistance die. The potential problem is if any of the power level dice rolled are 1s. If so, the spell fails automatically unless the conjurer takes spellburn.
 
 Rolling more power level dice has a greater chance of equaling or beating a resistance roll but also gives you a better chance to roll a 1. If the resistance number you need to equal or beat is low consider rolling one or two dice instead of three.
 
@@ -34,11 +34,11 @@ Conjurers can attack up to six enemies but the strain is great and the defenses 
 
 Some spells are not cast instantly and need to be maintained. Anchoring allows conjurers to embed and maintain an active, prolonged spell in their mind. The conjurer can do any other actions while anchoring a spell but if the conjurer takes a strike, falls unconscious, or casts another spell, the anchor is broken causing the spell to end. Some circles of sorcery require the burning of karma as well as anchoring to maintain a spell.
 
-## Helping the RR understand the spell being cast
+## Helping the GM understand the spell being cast
 
-Most attack spells are pretty straightforward. The conjurer announces spell and targets. The RR rolls resistance dice and informs the conjurer of the number they need for success. The conjurer decides on power level and whether to take spellburn if it fails.
+Most attack spells are pretty straightforward. The conjurer announces spell and targets. The GM rolls resistance dice and informs the conjurer of the number they need for success. The conjurer decides on power level and whether to take spellburn if it fails.
 
-Other spells might be less clear-cut. This is where arbitration with the RR may come in. After you make a case for the spell, your RR will decide on the validity of the spell and the number of resistance dice you must beat to cast it. Remember that the RR has the final word on spell casting. If you decide the spell would be too hard to cast, you can always switch to another spell.
+Other spells might be less clear-cut. This is where arbitration with the GM may come in. After you make a case for the spell, your GM will decide on the validity of the spell and the number of resistance dice you must beat to cast it. Remember that the GM has the final word on spell casting. If you decide the spell would be too hard to cast, you can always switch to another spell.
 
 Creating your own spells on the ﬂy is fun but will take up time at the table. Be careful to not make your spell too complicated and difficult to explain. If the process is bogging down the game, consider using a simpler spell.
 

@@ -112,7 +112,7 @@
 
 *Traveler* - On your travels you have had ample opportunity to hone a skill. Pick a skill (examples, melee, acrobatics, streetsmart, observation etc...) and gain a boon in that ability.
 
-*Strands of Fate* - As one who has studied the omens, you have the ability to manipulate luck in favor of the party. Party members can use karma against the Rabble Rouser when you are near. (Subtracting each karma spent on the RR rolls).
+*Strands of Fate* - As one who has studied the omens, you have the ability to manipulate luck in favor of the party. Party members can use karma against the GM when you are near. (Subtracting each karma spent on the GM rolls).
 
 ## Beastmaster
 
@@ -126,4 +126,4 @@
 
 *Beast Aid* - Given circumstances, you can convince beasts to aid you for a limited time.
 
-*Beast Friend* - You can start the game with a beast companion. The beast is your friend, not your slave. It stays with you as long as well treated and protected. The beast can be up to medium size and has 2 Strikes or 1 Strike for a small animal. Consult with the RR for any boons your beast might have.
+*Beast Friend* - You can start the game with a beast companion. The beast is your friend, not your slave. It stays with you as long as well treated and protected. The beast can be up to medium size and has 2 Strikes or 1 Strike for a small animal. Consult with the GM for any boons your beast might have.

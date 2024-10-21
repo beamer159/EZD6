@@ -24,7 +24,7 @@ Confirmed crits permit unused strikes to be carried over to nearby targets. If y
 
 There may be times when you want to restrain an enemy that is running away or escape from the jaws of a dragon trying to swallow you. These types of opposed actions are called *contests*. Think of them as one party wanting a certain outcome and the opposing party wants another.
 
-The RR and the hero roll against each other and the higher roll wins the contest. A tied result means both parties are still struggling to get the upper hand. As in most actions, you can use karma on this roll. Attempting any other action while in a contest will incur a bane.
+The GM and the hero roll against each other and the higher roll wins the contest. A tied result means both parties are still struggling to get the upper hand. As in most actions, you can use karma on this roll. Attempting any other action while in a contest will incur a bane.
 
 ## Armor is a hero’s first line of defense
 
