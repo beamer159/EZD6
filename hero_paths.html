@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="character_creation.html"><strong aria-hidden="true">1.</strong> Character Creation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hero_paths.html" class="active"><strong aria-hidden="true">1.1.</strong> Hero Paths</a></li><li class="chapter-item expanded "><a href="species.html"><strong aria-hidden="true">1.2.</strong> Species</a></li><li class="chapter-item expanded "><a href="inclinations.html"><strong aria-hidden="true">1.3.</strong> Inclinations</a></li><li class="chapter-item expanded "><a href="aspects.html"><strong aria-hidden="true">1.4.</strong> Aspects</a></li><li class="chapter-item expanded "><a href="circles_of_sorcery.html"><strong aria-hidden="true">1.5.</strong> Circles of Sorcery</a></li></ol></li><li class="chapter-item expanded "><a href="how_to_play.html"><strong aria-hidden="true">2.</strong> How To Play</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rolls.html"><strong aria-hidden="true">2.1.</strong> Rolls</a></li><li class="chapter-item expanded "><a href="karma.html"><strong aria-hidden="true">2.2.</strong> Karma</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">2.3.</strong> Actions</a></li><li class="chapter-item expanded "><a href="combat.html"><strong aria-hidden="true">2.4.</strong> Combat</a></li><li class="chapter-item expanded "><a href="magick.html"><strong aria-hidden="true">2.5.</strong> Magick</a></li><li class="chapter-item expanded "><a href="miracles.html"><strong aria-hidden="true">2.6.</strong> Mircacles</a></li><li class="chapter-item expanded "><a href="equipment.html"><strong aria-hidden="true">2.7.</strong> Equipment</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="character_creation.html"><strong aria-hidden="true">1.</strong> Character Creation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hero_paths.html" class="active"><strong aria-hidden="true">1.1.</strong> Hero Paths</a></li><li class="chapter-item expanded "><a href="species.html"><strong aria-hidden="true">1.2.</strong> Species</a></li><li class="chapter-item expanded "><a href="inclinations.html"><strong aria-hidden="true">1.3.</strong> Inclinations</a></li><li class="chapter-item expanded "><a href="aspects.html"><strong aria-hidden="true">1.4.</strong> Aspects</a></li><li class="chapter-item expanded "><a href="circles_of_sorcery.html"><strong aria-hidden="true">1.5.</strong> Circles of Sorcery</a></li><li class="chapter-item expanded "><a href="equipment.html"><strong aria-hidden="true">1.6.</strong> Equipment</a></li></ol></li><li class="chapter-item expanded "><a href="how_to_play.html"><strong aria-hidden="true">2.</strong> How To Play</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rolls.html"><strong aria-hidden="true">2.1.</strong> Rolls</a></li><li class="chapter-item expanded "><a href="karma.html"><strong aria-hidden="true">2.2.</strong> Karma</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">2.3.</strong> Actions</a></li><li class="chapter-item expanded "><a href="combat.html"><strong aria-hidden="true">2.4.</strong> Combat</a></li><li class="chapter-item expanded "><a href="magick.html"><strong aria-hidden="true">2.5.</strong> Magick</a></li><li class="chapter-item expanded "><a href="miracles.html"><strong aria-hidden="true">2.6.</strong> Mircacles</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -260,7 +260,7 @@
 </ul>
 <p><em>Scrollmaster</em> - You can cast magick from scrolls. You start the game with two random scrolls.</p>
 <p><em>Traveler</em> - On your travels you have had ample opportunity to hone a skill. Pick a skill (examples, melee, acrobatics, streetsmart, observation etc...) and gain a boon in that ability.</p>
-<p><em>Strands of Fate</em> - As one who has studied the omens, you have the ability to manipulate luck in favor of the party. Party members can use karma against the Rabble Rouser when you are near. (Subtracting each karma spent on the RR rolls).</p>
+<p><em>Strands of Fate</em> - As one who has studied the omens, you have the ability to manipulate luck in favor of the party. Party members can use karma against the GM when you are near. (Subtracting each karma spent on the GM rolls).</p>
 <h2 id="beastmaster"><a class="header" href="#beastmaster">Beastmaster</a></h2>
 <p><em>You have realized your gift with animals is rare and wonderful.</em></p>
 <ul>
@@ -270,7 +270,7 @@
 </ul>
 <p><em>Beastspeech</em> - You can speak to any animal.</p>
 <p><em>Beast Aid</em> - Given circumstances, you can convince beasts to aid you for a limited time.</p>
-<p><em>Beast Friend</em> - You can start the game with a beast companion. The beast is your friend, not your slave. It stays with you as long as well treated and protected. The beast can be up to medium size and has 2 Strikes or 1 Strike for a small animal. Consult with the RR for any boons your beast might have.</p>
+<p><em>Beast Friend</em> - You can start the game with a beast companion. The beast is your friend, not your slave. It stays with you as long as well treated and protected. The beast can be up to medium size and has 2 Strikes or 1 Strike for a small animal. Consult with the GM for any boons your beast might have.</p>
 
                     </main>
 
@@ -301,22 +301,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
